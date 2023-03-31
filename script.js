@@ -1,12 +1,10 @@
 const game = (playerAction,computerAction) =>{
    
-    let result = ""
+    let result = "";
     if(playerAction == computerAction){
         result = "Tie";
-        
     }else if(playerAction == "rock" && computerAction == "scissors"){
         result = "Player Wins, " + playerAction + " beats " + computerAction;
-        
     }else if(playerAction == "paper" && computerAction == "rock"){
         result = "Player Wins, " + playerAction + " beats " + computerAction;
     }
@@ -25,7 +23,7 @@ const playRound = times =>{
 }
 const getComputerChoice = () =>{
     const actions = ["rock","paper","scissors"];
-    let computerAction = actions[Math.floor(Math.random() *(3 - 0) + 0)]
+    let computerAction = actions[getRandomNumber(0,3)];
     return computerAction;
 }
 const getPlayerChoice = () =>{
@@ -33,7 +31,10 @@ const getPlayerChoice = () =>{
     playerAction = playerAction.toLowerCase();
     return playerAction;
 }
-
+const getRandomNumber  = (min,max)=>{
+    number = Math.floor(Math.random() * (max - min) + min);
+    return number;
+} 
 playRound(5);
 
 
