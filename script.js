@@ -19,13 +19,17 @@ const game = (playerAction,computerAction) =>{
 const playRound = times =>{
     scorePlayer = 0;
     scoreComputer = 0;
-    for (let i = 1; i <= times; i++){
+    finish = false;
+    while(finish == false){
         let result = game(getPlayerChoice(), getComputerChoice());
         if(result.includes("Player") == true){
             scorePlayer++;
         }else if(result.includes("Computer") == true){
             scoreComputer++;
         }
+        if(scorePlayer == times || scoreComputer == times){
+            finish = true;
+        } 
         console.log("Player score: " + scorePlayer + " Computer score: " +scoreComputer)
     }
     if(scorePlayer > scoreComputer){
@@ -42,7 +46,8 @@ const getComputerChoice = () =>{
     return computerAction;
 }
 const getPlayerChoice = () =>{
-    playerAction = prompt("Enter rock, paper o scissors", "rock");
+    //playerAction = prompt("Enter rock, paper o scissors", "rock");
+    playerAction ="rock";
     playerAction = playerAction.toLowerCase();
     return playerAction;
 }
