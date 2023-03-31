@@ -1,5 +1,5 @@
 const game = (playerAction,computerAction) =>{
-   
+    
     let result = "";
     if(playerAction == computerAction){
         result = "Tie";
@@ -17,8 +17,23 @@ const game = (playerAction,computerAction) =>{
 }
 
 const playRound = times =>{
+    scorePlayer = 0;
+    scoreComputer = 0;
     for (let i = 1; i <= times; i++){
-        console.log(game(getPlayerChoice(), getComputerChoice()));
+        let result = game(getPlayerChoice(), getComputerChoice());
+        if(result.includes("Player") == true){
+            scorePlayer++;
+        }else if(result.includes("Computer") == true){
+            scoreComputer++;
+        }
+        console.log("Player score: " + scorePlayer + " Computer score: " +scoreComputer)
+    }
+    if(scorePlayer > scoreComputer){
+        console.log("Player wins with: " + scorePlayer);
+    }else if(scorePlayer < scoreComputer){
+        console.log("Computer wins with: " + scoreComputer);
+    }else{
+        console.log("Tie, Player score: " + scorePlayer + " Computer score: " +scoreComputer)
     }
 }
 const getComputerChoice = () =>{
