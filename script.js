@@ -4,14 +4,14 @@ const game = (playerAction,computerAction) =>{
     if(playerAction == computerAction){
         result = "Tie";
     }else if(playerAction == "rock" && computerAction == "scissors"){
-        result = "Player Wins, " + playerAction + " beats " + computerAction;
+        result = "Player";
     }else if(playerAction == "paper" && computerAction == "rock"){
-        result = "Player Wins, " + playerAction + " beats " + computerAction;
+        result = "Player";
     }
     else if(playerAction == "scissors" && computerAction == "paper"){
-        result = "Player Wins, " + playerAction + " beats " + computerAction;
+        result = "Player";
     }else{
-        result = "Computer Wins, " + computerAction + " beats " + playerAction;
+        result = "Computer";
     }
     return result;
 }
@@ -22,9 +22,9 @@ const playRound = times =>{
     finish = false;
     while(finish == false){
         let result = game(getPlayerChoice(), getComputerChoice());
-        if(result.includes("Player") == true){
+        if(result == "Player"){
             scorePlayer++;
-        }else if(result.includes("Computer") == true){
+        }else if(result == "Computer"){
             scoreComputer++;
         }
         if(scorePlayer == times || scoreComputer == times){
