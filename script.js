@@ -46,7 +46,7 @@ const getComputerChoice = () =>{
     return computerAction;
 }
 const getPlayerChoice = () =>{
-    playerAction = prompt("Enter rock, paper o scissors", "rock");
+    playerAction = prompt("Enter rock, paper or scissors", "rock");
     playerAction = playerAction.toLowerCase();
     return playerAction;
 }
