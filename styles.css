@@ -57,8 +57,16 @@ body{
     border-radius: 10px;
     background-color: transparent;
 }
-img{
+.img{
     height: 200px;
+}
+.card:hover{
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+}
+.git{
+    height: 30px;
 }
 .score{
     margin: 100px;

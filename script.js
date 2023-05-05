@@ -47,7 +47,6 @@ const playRound = () =>{
     score.classList.replace('hidden','visible'); 
     score.textContent = `Player ${scorePlayer} -- Computer ${scoreComputer}`;
 
-   
 }
 const getComputerChoice = () =>{
     const actions = ["rock","paper","scissors"];
