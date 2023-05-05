@@ -1,8 +1,5 @@
 const game = (playerAction,computerAction) =>{
     
-    console.log(playerAction);
-    console.log(computerAction);
-
     let result = "";
     if(playerAction == computerAction){
         result = "Tie";
@@ -91,7 +88,7 @@ const winner = document.querySelector(".winner");
 imgs.forEach(img => {
     img.addEventListener('click',function(event){
         let choice = img.alt;
-        console.log(game(choice,getComputerChoice()));
+        game(choice,getComputerChoice());
     })
 });
 
