@@ -1,2 +1,3 @@
 # Rock-Paper-Scissors
-Project to create a rock paper scissors game
+A rock, paper and scissors game made with html, css and javascript
+
