@@ -1,5 +1,7 @@
 const game = (playerAction,computerAction) =>{
     
+    console.log(playerAction);
+    console.log(computerAction);
     let result = "";
     if(playerAction == computerAction){
         result = "Tie";
@@ -13,59 +15,63 @@ const game = (playerAction,computerAction) =>{
     }else{
         result = "Computer";
     }
+    updateScore(result);
     return result;
 }
 
-const playRound = times =>{
+const playRound = () =>{
     scorePlayer = 0;
     scoreComputer = 0;
     finish = false;
-   start.classList.add('hidden');
-   actions.classList.replace('hidden','visible');
-   score.classList.replace('hidden','visible'); 
+    start.classList.add('hidden');
+    actions.classList.replace('hidden','visible');
+    score.classList.replace('hidden','visible'); 
+    score.textContent = `Score = Player ${scorePlayer} - Computer ${scoreComputer}`;
 
-    // while(finish == false){
-    //     let result = game(getPlayerChoice(), getComputerChoice());
-    //     if(result == "Player"){
-    //         scorePlayer++;
-    //     }else if(result == "Computer"){
-    //         scoreComputer++;
-    //     }
-    //     if(scorePlayer == times || scoreComputer == times){
-    //         finish = true;
-    //     } 
-    //     console.log("Player score: " + scorePlayer + " Computer score: " +scoreComputer)
-    // }
-    // if(scorePlayer > scoreComputer){
-    //     console.log("Player wins with: " + scorePlayer);
-    // }else if(scorePlayer < scoreComputer){
-    //     console.log("Computer wins with: " + scoreComputer);
-    // }else{
-    //     console.log("Tie, Player score: " + scorePlayer + " Computer score: " +scoreComputer)
-    // }
+    cards.forEach(card => {
+        card.addEventListener('click',function(event){
+            let choice = card.textContent.toLocaleLowerCase();
+            console.log(game(choice,getComputerChoice()));
+        })
+    });
 }
 const getComputerChoice = () =>{
     const actions = ["rock","paper","scissors"];
     let computerAction = actions[getRandomNumber(0,3)];
     return computerAction;
 }
-const getPlayerChoice = () =>{
-    playerAction = prompt("Enter rock, paper or scissors", "rock");
-    playerAction = playerAction.toLowerCase();
-    return playerAction;
+const endGame = () =>{
+    actions.classList.replace('visible','hidden');
+    score.classList.replace('visible','hidden'); 
+
+    start.textContent = "Again?"
+    start.classList.remove("hidden");
+
+}
+const updateScore = (result) =>{
+    
+    if(result == "Computer"){scoreComputer++}
+    if(result == "Player"){scorePlayer++}
+    
+    score.textContent = `Score = Player ${scorePlayer} - Computer ${scoreComputer}`
+
+    if(scoreComputer >= 5 || scorePlayer >= 5){
+        endGame();
+    }
 }
 const getRandomNumber  = (min,max)=>{
     number = Math.floor(Math.random() * (max - min) + min);
     return number;
 } 
-//playRound(5);
 
-let start = document.querySelector('.playButton');
-let actions = document.querySelector('.actions');
-let score = document.querySelector('.score');
+const start = document.querySelector('.playButton');
+const actions = document.querySelector('.actions');
+const score = document.querySelector('.score');
+const cards = document.querySelectorAll('.card');
+
 
 start.addEventListener('click', function(event){
-    playRound(5)
+    playRound()
 });
 
 
