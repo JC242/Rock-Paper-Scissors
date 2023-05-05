@@ -32,7 +32,7 @@ body{
 .visible{
     display: flex;
 }
-.option{
+.actions{
     flex-direction: row;
     margin: 20px;
     gap: 16px;
