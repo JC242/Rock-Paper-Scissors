@@ -2,6 +2,7 @@ const game = (playerAction,computerAction) =>{
     
     console.log(playerAction);
     console.log(computerAction);
+
     let result = "";
     if(playerAction == computerAction){
         result = "Tie";
@@ -22,18 +23,12 @@ const game = (playerAction,computerAction) =>{
 const playRound = () =>{
     scorePlayer = 0;
     scoreComputer = 0;
-    finish = false;
     start.classList.add('hidden');
     actions.classList.replace('hidden','visible');
     score.classList.replace('hidden','visible'); 
-    score.textContent = `Score = Player ${scorePlayer} - Computer ${scoreComputer}`;
+    score.textContent = `Player ${scorePlayer} -- Computer ${scoreComputer}`;
 
-    cards.forEach(card => {
-        card.addEventListener('click',function(event){
-            let choice = card.textContent.toLocaleLowerCase();
-            console.log(game(choice,getComputerChoice()));
-        })
-    });
+   
 }
 const getComputerChoice = () =>{
     const actions = ["rock","paper","scissors"];
@@ -53,7 +48,7 @@ const updateScore = (result) =>{
     if(result == "Computer"){scoreComputer++}
     if(result == "Player"){scorePlayer++}
     
-    score.textContent = `Score = Player ${scorePlayer} - Computer ${scoreComputer}`
+    score.textContent = `Player ${scorePlayer} -- Computer ${scoreComputer}`
 
     if(scoreComputer >= 5 || scorePlayer >= 5){
         endGame();
@@ -69,6 +64,12 @@ const actions = document.querySelector('.actions');
 const score = document.querySelector('.score');
 const cards = document.querySelectorAll('.card');
 
+cards.forEach(card => {
+    card.addEventListener('click',function(event){
+        let choice = card.textContent.toLocaleLowerCase();
+        console.log(game(choice,getComputerChoice()));
+    })
+});
 
 start.addEventListener('click', function(event){
     playRound()
