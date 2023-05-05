@@ -4,6 +4,8 @@ body{
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background-color: black;
+    color: white;
 }
 .header{
     display: flex;
@@ -25,12 +27,20 @@ body{
     width: auto;
     margin: 10px;
     font-size: 200px;
+    color: white;
+    border: none;
+    background-color: transparent;
 }
 .hidden{
     display: none;
 }
 .visible{
     display: flex;
+}
+.annoncer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .actions{
     flex-direction: row;
@@ -43,7 +53,12 @@ body{
     width: 200px;
     align-items: center;
     justify-content: center;
-    background: lightblue;
+    border: inset;
+    border-radius: 10px;
+    background-color: transparent;
+}
+img{
+    height: 200px;
 }
 .score{
     margin: 100px;

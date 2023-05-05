@@ -62,11 +62,11 @@ const getRandomNumber  = (min,max)=>{
 const start = document.querySelector('.playButton');
 const actions = document.querySelector('.actions');
 const score = document.querySelector('.score');
-const cards = document.querySelectorAll('.card');
+const imgs = document.querySelectorAll('img');
 
-cards.forEach(card => {
-    card.addEventListener('click',function(event){
-        let choice = card.textContent.toLocaleLowerCase();
+imgs.forEach(img => {
+    img.addEventListener('click',function(event){
+        let choice = img.alt;
         console.log(game(choice,getComputerChoice()));
     })
 });

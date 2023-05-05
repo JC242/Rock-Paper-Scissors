@@ -7,21 +7,30 @@
     <title>Rock-paper-scissors</title>
 </head>
 <body>
-    <h1 class="header">Rock Paper Scissors</h1>
-    
     <div class="container">
         <button class="playButton">START</button>
 
+        <h1 class="annoucer hidden">Choice your action</h1>
+        <h3 class="desc hidden"></h3>
+
         <div class="actions hidden">
-            <div class="scissors card">Scissors</div>
-            <div class="paper card">Paper</div>
-            <div class="rock card">Rock</div>
+            <div class="scissors card">
+                <img src="images/scissors.png" alt="scissors">
+            </div>
+            <div class="paper card" value = "paper">
+                <img src="images/paper.png" alt="paper">
+            </div>
+            <div class="rock card">
+                <img src="images/Rock.png" alt="rock">
+            </div>
         </div>
 
         <h3 class="score hidden">Score:</h3>
+
+        <h1 class="winner hidden"></h1>
     </div>
     
-    <footer class="footer">Made by Juan H</footer>
+    <footer class="footer">Copyright © Juan Herrera 2023</footer>
 </body>
 <script src="script.js"></script>
 </html>
