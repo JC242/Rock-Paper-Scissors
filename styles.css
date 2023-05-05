@@ -37,7 +37,7 @@ body{
 .visible{
     display: flex;
 }
-.annoncer{
+.annonce .desc{
     display: flex;
     align-items: center;
     justify-content: center;
